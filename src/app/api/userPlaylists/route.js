@@ -117,7 +117,7 @@ export async function DELETE(req){
 
 // get all playlists
 export async function GET(req){
-    const token = await getToken({ req, secret: process.env.JWT_SECRET });
+            const token = await getToken({ req, secret: process.env.NEXTAUTH_SECRET || process.env.JWT_SECRET });
     if (!token) {
         return NextResponse.json(
             {

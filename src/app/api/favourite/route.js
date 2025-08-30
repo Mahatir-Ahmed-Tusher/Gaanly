@@ -8,7 +8,7 @@ import UserData from "@/models/UserData";
 
 // Get user data
 export async function GET(req){
-    const token = await getToken({ req, secret: process.env.JWT_SECRET });
+    const token = await getToken({ req, secret: process.env.NEXTAUTH_SECRET });
     if (!token) {
         return NextResponse.json(
             {
@@ -69,7 +69,7 @@ export async function GET(req){
 
 // Add to favourites
 export async function POST(request) {
-    const token = await getToken({ req: request, secret: process.env.JWT_SECRET });
+            const token = await getToken({ req: request, secret: process.env.NEXTAUTH_SECRET });
     if (!token) {
         return NextResponse.json(
             {

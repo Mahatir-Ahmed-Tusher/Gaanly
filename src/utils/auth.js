@@ -5,7 +5,7 @@ import dbConnect from "@/utils/dbconnect";
 
 // check if user is logged in
 export default async function auth(req) {
-    const token = await getToken({ req, secret: process.env.JWT_SECRET });
+    const token = await getToken({ req, secret: process.env.NEXTAUTH_SECRET || process.env.JWT_SECRET });
     if (!token) {
         return null
     }

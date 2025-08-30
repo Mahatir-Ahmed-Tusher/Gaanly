@@ -42,20 +42,28 @@ const options = {
     strategy: "jwt",
     maxAge: 30 * 24 * 60 * 60, // 30 days
   },
-  secret: process.env.NEXTAUTH_SECRET || process.env.JWT_SECRET,
+  secret: process.env.NEXTAUTH_SECRET,
   debug: process.env.NODE_ENV === "development",
 
   callbacks: {
-    // async session({ session}) {
-    //     const  sessionUser  = await User.findOne({ email: session.user.email });
-    //     if (sessionUser) {
-    //         session.user.id = sessionUser._id;
-    //         session.userName = sessionUser.userName;
-    //         session.imageUrl = sessionUser.imageUrl;
-    //         session.isVerified = sessionUser.isVerified;
-    //     }
-    //     return session;
-    // },
+    async session({ session, token }) {
+      if (token) {
+        session.user.id = token.sub;
+        session.user.userName = token.userName;
+        session.user.imageUrl = token.imageUrl;
+        session.user.isVerified = token.isVerified;
+      }
+      return session;
+    },
+
+    async jwt({ token, user, account, profile }) {
+      if (user) {
+        token.userName = user.userName;
+        token.imageUrl = user.imageUrl;
+        token.isVerified = user.isVerified;
+      }
+      return token;
+    },
 
     async signIn({ account, profile }) {
       if (account.provider === "google") {

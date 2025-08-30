@@ -1,5 +1,6 @@
 # 🎵 Gaanly - Premium Music Streaming Platform
 
+[![Gaanly Banner](https://github-production-user-asset-6210df.s3.amazonaws.com/99420590/256470702-de779111-e63e-4ecc-93d1-e79edadf19ed.png)](https://gaanly.live/)
 
 [![Live Demo](https://img.shields.io/badge/Live%20Demo-Gaanly.live-8B5CF6?style=for-the-badge&logo=vercel)](https://gaanly.live/)
 [![GitHub Stars](https://img.shields.io/github/stars/Mahatir-Ahmed-Tusher/Gaanly?style=for-the-badge&logo=github)](https://github.com/Mahatir-Ahmed-Tusher/Gaanly)

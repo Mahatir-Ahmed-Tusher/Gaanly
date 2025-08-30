@@ -47,10 +47,10 @@ const Profile = ({setShowNav}) => {
                     ):
                     (
                         <div className=' flex gap-4 ml-1'>
-                            <img src={data?.imageUrl || user?.imageUrl} alt='user' width={50} height={50} className='rounded-full' />
+                            <img src={data?.user?.imageUrl || user?.imageUrl} alt='user' width={50} height={50} className='rounded-full' />
                             <div className='flex flex-col gap-1 w-full truncate'>
                                 <div className='flex justify-between items-center'>
-                            <h1 className='text-lg font-semibold'>{data?.userName || user?.userName}</h1>
+                            <h1 className='text-lg font-semibold'>{data?.user?.userName || user?.userName}</h1>
                             <MdLogout size={20} onClick={()=>{
                                 setShowNav(false);
                                 signOut();
